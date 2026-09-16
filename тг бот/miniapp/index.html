@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Case Game</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        body {
+            background: #111827;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .case {
+            font-size: 90px;
+            margin: 30px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<h1>🎁 Case Game</h1>
+
+<div class="case">
+📦
+</div>
+
+<h2>
+💰 Монеты: 1000
+</h2>
+
+
+<button>
+Открыть кейс
+</button>
+
+
+<script>
+
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+
+tg.expand();
+
+</script>
+
+
+</body>
+
+</html>
