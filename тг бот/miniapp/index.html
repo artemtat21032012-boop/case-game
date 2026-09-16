@@ -1,64 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
-    <title>Case Game</title>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            background: #111827;
-            color: white;
-            font-family: Arial;
-            text-align: center;
-            padding: 40px;
-        }
+<title>Case Game</title>
 
-        .case {
-            font-size: 90px;
-            margin: 30px;
-        }
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            border-radius: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
+
+<style>
+
+body {
+    margin:0;
+    background:#0f172a;
+    color:white;
+    font-family:Arial, sans-serif;
+}
+
+
+.container {
+
+    text-align:center;
+    padding:30px;
+
+}
+
+
+h1 {
+
+    font-size:38px;
+
+}
+
+
+.case-box {
+
+    background:#1e293b;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin-top:30px;
+
+}
+
+
+
+.case {
+
+    font-size:110px;
+
+    margin:20px;
+
+}
+
+
+
+.balance {
+
+    font-size:25px;
+
+    margin:20px;
+
+}
+
+
+
+button {
+
+    background:#2563eb;
+
+    color:white;
+
+    border:0;
+
+    padding:18px 40px;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+}
+
+
+
+#result {
+
+    margin-top:30px;
+
+    font-size:24px;
+
+}
+
+
+
+.item {
+
+    background:#334155;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+
+</style>
+
 
 </head>
 
 
 <body>
 
-<h1>🎁 Case Game</h1>
+
+<div class="container">
+
+
+<h1>
+🎁 Case Game
+</h1>
+
+
+<div class="case-box">
+
 
 <div class="case">
 📦
 </div>
 
-<h2>
-💰 Монеты: 1000
-</h2>
+
+<div class="balance">
+
+💰 Монеты:
+<span id="coins">1000</span>
+
+</div>
 
 
-<button>
+<button onclick="openCase()">
+
 Открыть кейс
+
 </button>
 
 
+
+<div id="result"></div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
 <script>
+
+
+// подключение Telegram
 
 const tg = window.Telegram.WebApp;
 
 tg.ready();
 
 tg.expand();
+
+
+
+
+// баланс
+
+let coins = 1000;
+
+
+
+// предметы
+
+const items = [
+
+{
+name:"🧢 Обычная кепка",
+rarity:"Обычный"
+},
+
+{
+name:"🔪 Нож",
+rarity:"Редкий"
+},
+
+{
+name:"💎 Алмазный скин",
+rarity:"Эпический"
+},
+
+{
+name:"🔥 Легендарный предмет",
+rarity:"Легендарный"
+}
+
+];
+
+
+
+
+
+function openCase(){
+
+
+if(coins < 100){
+
+document.getElementById("result").innerHTML =
+"❌ Недостаточно монет";
+
+return;
+
+}
+
+
+
+coins -= 100;
+
+
+document.getElementById("coins").innerHTML = coins;
+
+
+
+let item =
+items[Math.floor(Math.random()*items.length)];
+
+
+
+document.getElementById("result").innerHTML = `
+
+<div class="item">
+
+🎉 Выпало:
+
+<br><br>
+
+<b>${item.name}</b>
+
+<br><br>
+
+⭐ Редкость: ${item.rarity}
+
+</div>
+
+`;
+
+
+
+}
+
 
 </script>
 
