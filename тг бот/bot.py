@@ -2,7 +2,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppI
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 
-TOKEN = "твой токен"
+TOKEN = "8610528069:AAH3H-ryTzTfRkx880lDTSt6sSFk5gz_Fg4"
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
